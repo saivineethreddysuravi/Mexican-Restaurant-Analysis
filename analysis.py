@@ -31,35 +31,47 @@ def analyze_demographics(consumers):
     plt.title('Distribution of Consumer Age')
     plt.xlabel('Age')
     plt.ylabel('Count')
-    plt.savefig('assets/age_distribution_analysis.png')
-    print("Saved age distribution plot to assets/age_distribution_analysis.png")
+    plt.savefig('output/age_distribution_analysis.png')
+    print("Saved age distribution plot to output/age_distribution_analysis.png")
 
     # Occupation counts
     occupation_counts = consumers['Occupation'].value_counts()
     print("\nTop Occupations:")
     print(occupation_counts.head())
 
-def analyze_ratings(ratings):
-    """Analyzes restaurant ratings."""
-    print("\n--- Ratings Analysis ---")
+def analyze_top_restaurants(ratings, restaurants):
+    """Identifies top 5 highest rated restaurants."""
+    print("\n--- Top Restaurant Analysis ---")
     
-    # Calculate average ratings
-    avg_ratings = ratings[['Overall_Rating', 'Food_Rating', 'Service_Rating']].mean()
-    print("Average Ratings (0-2 Scale):")
-    print(avg_ratings)
+    # Merge ratings with restaurant details
+    merged = pd.merge(ratings, restaurants, on='Restaurant_ID')
     
-    # Correlation between Food and Service
-    corr = ratings['Food_Rating'].corr(ratings['Service_Rating'])
-    print(f"\nCorrelation between Food and Service Rating: {corr:.2f}")
+    # Calculate average rating per restaurant
+    restaurant_ratings = merged.groupby('Name')['Overall_Rating'].mean().reset_index()
+    
+    # Sort and get top 5
+    top_5 = restaurant_ratings.sort_values(by='Overall_Rating', ascending=False).head(5)
+    
+    print("Top 5 Highest Rated Restaurants:")
+    print(top_5)
+    
+    return top_5
 
 def main():
+    # Ensure output directory exists
+    if not os.path.exists('output'):
+        os.makedirs('output')
+        
     consumers, ratings, restaurants = load_data()
     
-    if consumers is not None:
+    if consumers is not None and ratings is not None:
         analyze_demographics(consumers)
         analyze_ratings(ratings)
         
-        print("\nAnalysis complete. This script demonstrates Python data manipulation skills parallel to the Power BI analysis.")
+        if restaurants is not None:
+            analyze_top_restaurants(ratings, restaurants)
+        
+        print("\nAnalysis complete. Plots saved to 'output/' directory.")
 
 if __name__ == "__main__":
     main()
