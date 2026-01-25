@@ -1,10 +1,14 @@
 import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
 import os
+import sys
 
-# Set plotting style
-sns.set(style="whitegrid")
+# Add utils to path
+sys.path.append(os.path.join(os.path.dirname(__file__), 'utils'))
+try:
+    from visualizer import Visualizer
+except ImportError:
+    # Fallback if running from root
+    from mexican_restaurant_analysis.utils.visualizer import Visualizer
 
 def load_data(data_dir="Dataset"):
     """Loads datasets from the specified directory."""
@@ -19,20 +23,20 @@ def load_data(data_dir="Dataset"):
         print(f"Error loading files: {e}")
         return None, None, None
 
-def analyze_demographics(consumers):
+def analyze_demographics(consumers, viz):
     """Analyzes consumer demographics."""
     print("\n--- Demographic Analysis ---")
     
     # Age distribution
     print(f"Average Consumer Age: {consumers['Age'].mean():.2f}")
     
-    plt.figure(figsize=(10, 6))
-    sns.histplot(consumers['Age'], bins=20, kde=True, color='skyblue')
-    plt.title('Distribution of Consumer Age')
-    plt.xlabel('Age')
-    plt.ylabel('Count')
-    plt.savefig('output/age_distribution_analysis.png')
-    print("Saved age distribution plot to output/age_distribution_analysis.png")
+    viz.plot_histogram(
+        data=consumers,
+        column='Age',
+        title='Distribution of Consumer Age',
+        xlabel='Age',
+        filename='age_distribution_analysis.png'
+    )
 
     # Occupation counts
     occupation_counts = consumers['Occupation'].value_counts()
@@ -57,30 +61,29 @@ def analyze_top_restaurants(ratings, restaurants):
     
     return top_5
 
-def analyze_ratings(ratings):
+def analyze_ratings(ratings, viz):
     """Analyzes rating distributions."""
     print("\n--- Rating Distribution Analysis ---")
     
-    plt.figure(figsize=(8, 6))
-    sns.countplot(x='Overall_Rating', data=ratings, palette='viridis')
-    plt.title('Distribution of Overall Ratings')
-    plt.xlabel('Rating')
-    plt.ylabel('Count')
-    plt.savefig('output/rating_distribution.png')
-    print("Saved rating distribution plot to output/rating_distribution.png")
+    viz.plot_countplot(
+        data=ratings,
+        column='Overall_Rating',
+        title='Distribution of Overall Ratings',
+        xlabel='Rating',
+        filename='rating_distribution.png'
+    )
 
 import market_opportunity
 
 def main():
-    # Ensure output directory exists
-    if not os.path.exists('output'):
-        os.makedirs('output')
+    # Initialize Visualizer
+    viz = Visualizer(output_dir='output')
         
     consumers, ratings, restaurants = load_data()
     
     if consumers is not None and ratings is not None:
-        analyze_demographics(consumers)
-        analyze_ratings(ratings)
+        analyze_demographics(consumers, viz)
+        analyze_ratings(ratings, viz)
         
         if restaurants is not None:
             analyze_top_restaurants(ratings, restaurants)
