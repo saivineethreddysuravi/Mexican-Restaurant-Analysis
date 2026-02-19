@@ -8,3 +8,7 @@ SQL, Power BI, Python, Azure, Excel, Geospatial Analysis
 - Identified under-served high-demand zones for expansion using density analysis
 - Modeled price elasticity against customer satisfaction metrics
 - Delivered interactive dashboards for executive site selection and revenue forecasting
+
+## Day 4: Visualization & Dashboarding
+- Developed `src/segment_visualization.py` for market segment profiling.
+- Designed interactive Power BI dashboards for geospatial insight.
