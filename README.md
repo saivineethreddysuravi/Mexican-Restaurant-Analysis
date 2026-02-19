@@ -9,6 +9,10 @@ SQL, Power BI, Python, Azure, Excel, Geospatial Analysis
 - Modeled price elasticity against customer satisfaction metrics
 - Delivered interactive dashboards for executive site selection and revenue forecasting
 
+## Data Reliability & Risk Assessment
+- **Market Data Risk:** Developed `docs/MARKET_DATA_RISK.md` to measure data reliability for expansion strategies.
+- **Data Risk Scoring:** Implemented a zone-level scoring model to assess the risk of inaccurate site selection due to data aging.
+
 ## Day 4: Visualization & Dashboarding
 - Developed `src/segment_visualization.py` for market segment profiling.
 - Designed interactive Power BI dashboards for geospatial insight.
