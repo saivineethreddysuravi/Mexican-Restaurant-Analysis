@@ -7,7 +7,7 @@ def analyze_market_opportunity():
     print("Analyzing Market Opportunity & Consumer Behavior...")
     
     # Mock Data: Competitor Analysis
-    competitors = ['Taco Bell', 'Chipotle', 'Local Taqueria A', 'Local Taqueria B', 'Moe's']
+    competitors = ['Taco Bell', 'Chipotle', 'Local Taqueria A', 'Local Taqueria B', "Moe's"]
     ratings = [3.5, 4.2, 4.8, 4.6, 3.8]
     price_point = [1, 2, 2, 3, 2] # 1=$ , 3=$$$
     reviews_count = [1500, 2200, 350, 120, 800]
