@@ -16,3 +16,6 @@ SQL, Power BI, Python, Azure, Excel, Geospatial Analysis
 ## Day 4: Visualization & Dashboarding
 - Developed `src/segment_visualization.py` for market segment profiling.
 - Designed interactive Power BI dashboards for geospatial insight.
+## Day 5: Automated Insight Delivery
+**"Streamlining Strategy for Executive Speed"**
+I automated the delivery pipeline for these **market expansion insights**. By integrating a standardized dependency framework and automated linting, I’ve removed all "technical friction" from the analysis. This ensures that strategic consumer insights move from raw data to decision-ready visuals in seconds, providing a reliable backbone for high-speed site selection and expansion decisions.
