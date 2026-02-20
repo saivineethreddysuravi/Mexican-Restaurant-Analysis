@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-import numpy as np
+
 
 def analyze_market_opportunity():
     print("Analyzing Market Opportunity & Consumer Behavior...")
