@@ -1,6 +1,6 @@
 import pytest
 import pandas as pd
-from scripts.market_opportunity import calculate_opportunity_index
+from src.market_opportunity import calculate_opportunity_index
 
 def test_opportunity_index_calculation():
     """Test that the opportunity index correctly weights demand vs supply."""
@@ -16,7 +16,7 @@ def test_opportunity_index_calculation():
 def test_sentiment_boundary_conditions():
     """Ensure that sentiment scores are clipped between -1 and 1."""
     # Logic implementation check
-    from scripts.market_opportunity import normalize_sentiment
+    from src.market_opportunity import normalize_sentiment
     
     assert normalize_sentiment(500) == 1.0
     assert normalize_sentiment(-500) == -1.0
