@@ -1,21 +1,22 @@
-## Overview
-This project demonstrates strategic market analysis and consumer behavior modeling to drive business expansion decisions and optimize pricing strategies.
+# Market Opportunity & Consumer Behavior Analysis
+**Sai Vineeth Reddy Suravi | Senior Data Analyst**
 
-## Tools & Technologies
-SQL, Power BI, Python, Azure, Excel, Geospatial Analysis
+This analysis leverages geospatial data and consumer sentiment modeling to drive strategic business expansion and pricing optimization for high-growth retail segments.
 
-## Key Outcomes
-- Identified under-served high-demand zones for expansion using density analysis
-- Modeled price elasticity against customer satisfaction metrics
-- Delivered interactive dashboards for executive site selection and revenue forecasting
+## Performance & Impact
+- **Expansion Strategy:** Identified 3 high-potential "blue ocean" zones for retail expansion through competitor density and geospatial analysis.
+- **Pricing Optimization:** Modeled price elasticity against customer satisfaction metrics to recommend revenue-maximizing price points by region.
+- **BI Efficiency:** Implemented data pre-aggregation ETL pipelines, reducing the Power BI data model footprint and significantly improving DAX engine responsiveness.
 
-## Data Reliability & Risk Assessment
-- **Market Data Risk:** Developed `docs/MARKET_DATA_RISK.md` to measure data reliability for expansion strategies.
-- **Data Risk Scoring:** Implemented a zone-level scoring model to assess the risk of inaccurate site selection due to data aging.
+## Analytical Framework
+- **Risk Assessment:** Developed a Market Data Risk framework (`docs/MARKET_DATA_RISK.md`) to quantify the reliability of site selection decisions based on data aging.
+- **Decision Support:** Delivered an executive-facing interactive dashboard for site selection, featuring real-time revenue forecasting based on regional demographic overlays.
+- **Automation:** Standardized a reproducible dependency framework and automated linting to ensure high-speed delivery of consumer insights.
 
-## Day 4: Visualization & Dashboarding
-- Developed `src/segment_visualization.py` for market segment profiling.
-- Designed interactive Power BI dashboards for geospatial insight.
-## Day 5: Automated Insight Delivery
-**"Streamlining Strategy for Executive Speed"**
-I automated the delivery pipeline for these **market expansion insights**. By integrating a standardized dependency framework and automated linting, I’ve removed all "technical friction" from the analysis. This ensures that strategic consumer insights move from raw data to decision-ready visuals in seconds, providing a reliable backbone for high-speed site selection and expansion decisions.
+## Technical Stack
+- **Analytics:** SQL, Python (Geospatial Analysis, Pandas)
+- **BI Tools:** Power BI (DAX), Azure
+- **Modeling:** Price Elasticity, Sentiment Analysis, Revenue Forecasting
+
+---
+[LinkedIn](https://www.linkedin.com/in/saivineethreddysuravi) | [GitHub](https://github.com/saivineethreddysuravi) | [Portfolio](https://vineeeth.com)
