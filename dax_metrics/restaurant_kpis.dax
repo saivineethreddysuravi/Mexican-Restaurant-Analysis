@@ -1,0 +1,44 @@
+// DAX Metrics: Market Opportunity & Financial Performance
+
+// 1. Same-Store Sales Growth (YOY%)
+// Description: Measures the percentage change in total revenue compared to the exact same period last year.
+[YoY Sales Growth %] = 
+DIVIDE(
+    [Total Revenue] - CALCULATE([Total Revenue], SAMEPERIODLASTYEAR('Calendar'[Date])),
+    CALCULATE([Total Revenue], SAMEPERIODLASTYEAR('Calendar'[Date])),
+    0
+)
+
+// 2. Dynamic Customer Lifetime Value (CLV)
+// Description: Estimates CLV based on average order value, purchase frequency, and a fixed 5-year retention assumption.
+[Estimated CLV (5Y)] = 
+VAR AvgOrderValue = [Total Revenue] / [Total Transactions]
+VAR PurchaseFrequency = [Total Transactions] / DISTINCTCOUNT(Customers[CustomerID])
+VAR AverageLifespanYears = 5
+RETURN AvgOrderValue * PurchaseFrequency * AverageLifespanYears
+
+// 3. Profit Margin Erosion Alert
+// Description: Flags product categories where the profit margin has dropped below the 15% threshold.
+[Margin Alert Flag] = 
+IF(
+    [Net Profit Margin %] < 0.15,
+    "⚠️ Margin Risk",
+    "Healthy"
+)
+
+// 4. Rolling 3-Month Average Revenue
+// Description: Smooths out monthly seasonality for trend analysis.
+[3M Rolling Revenue] = 
+CALCULATE(
+    [Total Revenue],
+    DATESINPERIOD('Calendar'[Date], LASTDATE('Calendar'[Date]), -3, MONTH)
+)
+
+// 5. Dynamic Market Penetration Rate
+// Description: Compares current active customers against the total serviceable addressable market (SAM) in the region.
+[Market Penetration %] = 
+DIVIDE(
+    DISTINCTCOUNT(Transactions[CustomerID]),
+    SUM('Demographics'[Target Population]),
+    0
+)
