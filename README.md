@@ -20,3 +20,8 @@ This analysis leverages geospatial data and consumer sentiment modeling to drive
 
 ---
 [LinkedIn](https://www.linkedin.com/in/saivineethreddysuravi) | [GitHub](https://github.com/saivineethreddysuravi) | [Portfolio](https://vineeeth.com)
+
+
+## CI/CD & Containerization
+- **Docker**: Analysis environment is containerized for reproducibility. Build with `docker build -t restaurant-market-analysis .`.
+- **GitHub Actions**: Automated testing ensures data pre-aggregation and logic consistency.
