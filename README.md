@@ -25,3 +25,6 @@ This analysis leverages geospatial data and consumer sentiment modeling to drive
 ## CI/CD & Containerization
 - **Docker**: Analysis environment is containerized for reproducibility. Build with `docker build -t restaurant-market-analysis .`.
 - **GitHub Actions**: Automated testing ensures data pre-aggregation and logic consistency.
+
+## Infrastructure as Code (IaC)
+- **Terraform**: The `terraform/` directory defines an AWS RDS PostgreSQL instance for the analytical backend and S3 storage for BI artifacts.
