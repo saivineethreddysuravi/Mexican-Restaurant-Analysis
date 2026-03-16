@@ -28,3 +28,8 @@ This analysis leverages geospatial data and consumer sentiment modeling to drive
 
 ## Infrastructure as Code (IaC)
 - **Terraform**: The `terraform/` directory defines an AWS RDS PostgreSQL instance for the analytical backend and S3 storage for BI artifacts.
+
+## Day 11: Multimodal Market Intelligence
+- **Multimodal Intelligence**: Integrated `gemini-embedding-2-preview` to analyze menu images and social media feedback (Text, Audio, Image).
+- **Visual Brand Analysis**: Groups competitors based on dense vector representations of visual identity and menu complexity.
+- **Sentiment Mapping**: Analyzes consumer "vibes" from audio/video clips to identify emerging regional trends and pricing opportunities.
